@@ -1,17 +1,18 @@
 #!/usr/bin/python3
 import sys
+#!/usr/bin/python3
+import sys
 
 def factorial(n):
     result = 1
     while n > 1:
         result *= n
-        n -= 1  # <--- On diminue n pour finir par sortir de la boucle
+        n -= 1   # ← correction essentielle
     return result
 
-# Vérification qu'un argument est bien passé
-if len(sys.argv) > 1:
-    f = factorial(int(sys.argv[1]))
-    print(f)
-else:
-    print("Usage: ./script.py <nombre>")
-    
+if len(sys.argv) != 2:
+    print("Usage: ./factorial.py <nombre>")
+    sys.exit(1)
+
+f = factorial(int(sys.argv[1]))
+print(f)
